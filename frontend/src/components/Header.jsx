@@ -20,7 +20,7 @@ function Header() {
             <Link to='/'>GoalSetter</Link>
         </div>
         <ul>
-            {(user==null || user==undefined) ? (<>
+            {/* {(user==null || user==undefined) ? (<>
                 <li>
                 <Link to='/login'>
                     <FaSignInAlt />Login
@@ -45,7 +45,27 @@ function Header() {
     
                     </button>
                     </li>
-            )}
+            )} */}
+            {user ? (
+          <li>
+            <button className='btn' onClick={onLogout}>
+              <FaSignOutAlt /> Logout
+            </button>
+          </li>
+        ) : (
+          <>
+            <li>
+              <Link to='/login'>
+                <FaSignInAlt /> Login
+              </Link>
+            </li>
+            <li>
+              <Link to='/register'>
+                <FaUser /> Register
+              </Link>
+            </li>
+          </>
+        )}
             
         </ul>
     </header>
